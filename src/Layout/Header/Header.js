@@ -5,7 +5,7 @@ import { BsSun } from "react-icons/bs";
 const Header = () => {
   return (
     <div>
-      <nav className="bg-indigo-800 border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+      <nav className="bg-indigo-800 lg:py-3 md:pt-3 sm:pt-3 py-10 border-gray-200 px-2 sm:px-4 dark:bg-gray-900">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="/" className="flex items-center">
             <img
@@ -19,7 +19,7 @@ const Header = () => {
               </span>
             </span>
           </a>
-          <div className="flex md:order-2">
+          <div className="lg:flex md:flex sm:flex block md:order-2">
             <div>
               <a
                 href="/"

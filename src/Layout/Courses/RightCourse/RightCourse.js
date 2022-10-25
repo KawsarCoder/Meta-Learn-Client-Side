@@ -1,7 +1,7 @@
 import React from "react";
 
 const RightCourse = ({ category }) => {
-  const { id, name, description, img } = category;
+  const { name, description, img } = category;
   return (
     <div className="border-blue-500 border-4 rounded-lg  p-5">
       <img className="h-3/5 mb-3" src={img} alt="" />
