@@ -18,5 +18,9 @@ export const routes = createBrowserRouter([
         element: <Course></Course>,
       },
     ],
-  },
+    },
+    {
+        path: "*",
+        element:<p>Path will not define</p>
+    }
 ]);
