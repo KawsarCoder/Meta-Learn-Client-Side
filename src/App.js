@@ -1,18 +1,10 @@
-// import logo from './logo.svg';
 import "./App.css";
-import { Theme, Button } from "react-daisyui";
-
+import { RouterProvider } from "react-router-dom";
+import { routes } from "./Routes/Routes";
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <Theme dataTheme="dark">
-        <Button color="primary">Click me, dark!</Button>
-      </Theme>
-
-      <Theme dataTheme="light">
-        <Button color="primary">Click me, light!</Button>
-      </Theme>
+      <RouterProvider router={routes}></RouterProvider>
     </div>
   );
 }
