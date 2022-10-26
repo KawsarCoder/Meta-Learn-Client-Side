@@ -2,8 +2,10 @@ import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Register = () => {
+  const [error, setError] = useState("");
   const { userCreate } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -21,10 +23,13 @@ const Register = () => {
         const user = result.user;
         // console.log(user);
         form.reset();
-
+        setError("");
         navigate("/");
       })
-      .catch((error) => console.log(error));
+      .catch((e) => {
+        console.log(e);
+        setError(e.message);
+      });
   };
   return (
     <div className="grid grid-cols-12">
@@ -88,7 +93,6 @@ const Register = () => {
               id="first_name"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=""
-              required=""
             />
             <label
               htmlFor="name"
@@ -107,7 +111,6 @@ const Register = () => {
               id="phone"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=""
-              required=""
             />
             <label
               htmlFor="phone"
@@ -137,7 +140,9 @@ const Register = () => {
           A profile picture is useful to confirm your are logged into your
           account
         </div>
-
+        <span className="block mt-2 text-sm text-red-700 rounded-lg dark:bg-red-200 dark:text-red-800">
+          {error}
+        </span>
         <button
           type="submit"
           id="photo"

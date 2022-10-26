@@ -5,6 +5,8 @@ import CourseDetails from "../Layout/Courses/CourseDetails/CourseDetails";
 import Home from "../Layout/Home/Home";
 import Main from "../Layout/Main/Main";
 import Login from "../Login/Login";
+import Premium from "../Premium/Premium";
+import Private from "../Private/Private";
 import Register from "../Register/Register";
 
 export const routes = createBrowserRouter([
@@ -34,6 +36,17 @@ export const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/courses/:id/premium",
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/courses/${params.id}`);
+        },
+        element: (
+          <Private>
+            <Premium></Premium>
+          </Private>
+        ),
       },
     ],
   },

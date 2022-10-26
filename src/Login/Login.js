@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FcPhone } from "react-icons/fc";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const { userLogin, signIn } = useContext(AuthContext);
 
@@ -18,7 +20,7 @@ const Login = () => {
         const user = result.user;
         // console.log(user);
 
-        navigate("/home");
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
@@ -33,9 +35,14 @@ const Login = () => {
         const user = result.user;
         // console.log(user);
         form.reset();
-        navigate("/");
+        setError("");
+        navigate(from, { replace: true });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+
+        setError(e.message);
+      });
   };
 
   return (
@@ -90,11 +97,14 @@ const Login = () => {
             Remember me
           </label>
         </div> */}
+        <span className="block mb-2 text-sm text-red-700 rounded-lg dark:bg-red-200 dark:text-red-800">
+          {error}
+        </span>
         <button
           type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Submit
+          Log In
         </button>
         <span className="block mt-5">
           {" "}
