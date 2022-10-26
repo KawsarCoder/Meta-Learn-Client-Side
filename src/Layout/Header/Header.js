@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useState } from "react";
+import "./Header.css";
 
 const Header = () => {
   const { user, userLogOut } = useContext(AuthContext);
@@ -66,11 +67,14 @@ const Header = () => {
               {user?.uid ? (
                 <div>
                   <div className="flex">
-                    <img
-                      className="h-10 rounded-full mx-3"
-                      src={user?.photoURL}
-                      alt="Pic"
-                    />
+                    <div className="tooltip">
+                      <img
+                        className="h-10 rounded-full mx-3"
+                        src={user?.photoURL}
+                        alt="Pic"
+                      />
+                      <span className="tooltiptext"> {user?.email}</span>
+                    </div>
                     <button
                       onClick={logOut}
                       className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

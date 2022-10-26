@@ -7,7 +7,7 @@ import { useState } from "react";
 const Register = () => {
   const [error, setError] = useState("");
 
-  const { userCreate } = useContext(AuthContext);
+  const { userCreate, updateLoginProfile } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const userSubmit = (event) => {
@@ -19,11 +19,12 @@ const Register = () => {
     const number = form.phone.value;
     const password = form.password.value;
 
-    userCreate(email, password, name, photoURL, number)
+    userCreate(email, password, name)
       .then((result) => {
         const user = result.user;
         // console.log(user);
         form.reset();
+        updateUserProfile(name, photoURL);
         setError("");
         navigate("/");
       })
@@ -31,6 +32,15 @@ const Register = () => {
         console.log(e);
         setError(e.message);
       });
+  };
+  const updateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateLoginProfile(profile)
+      .then(() => {})
+      .catch((e) => console.error(e));
   };
   return (
     <div className="grid grid-cols-12">
@@ -122,24 +132,21 @@ const Register = () => {
           </div>
         </div>
 
-        <label
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          htmlFor="user_avatar"
-        >
-          Upload file
-        </label>
-        <input
-          className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-          aria-describedby="user_avatar_help"
-          id="user_avatar"
-          type="file"
-        />
-        <div
-          className="mt-1 text-sm text-gray-500 dark:text-gray-300"
-          id="user_avatar_help"
-        >
-          A profile picture is useful to confirm your are logged into your
-          account
+        <div>
+          <label
+            for="website"
+            className="block mb-2 text-sm text-gray-900 dark:text-gray-300"
+          >
+            Insert your Photo URL
+          </label>
+          <input
+            type="url"
+            name="photo"
+            id="website"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Photo url"
+            required
+          />
         </div>
         <div className="flex items-start my-6">
           <div className="flex items-center h-5">
