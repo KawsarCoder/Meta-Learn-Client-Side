@@ -1,12 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BsSun } from "react-icons/bs";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useState } from "react";
 
 const Header = () => {
   const { user, userLogOut } = useContext(AuthContext);
-  // console.log(user);
+  const [mood, setMood] = useState(false);
+
+  const toggleBtn = (event) => {
+    const toggle = event.target.checked;
+    const setTheme = document.getElementsByClassName("Theme");
+    if (toggle === true) {
+      setMood(true);
+    } else {
+      setMood(false);
+    }
+  };
+
   const logOut = () => {
     userLogOut()
       .then(() => {})
@@ -30,15 +41,27 @@ const Header = () => {
             </span>
           </a>
           <div className="lg:flex md:flex sm:flex block md:order-2">
-            <div>
-              <a
-                href="/"
-                className="flex m-3  py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                <BsSun className="mr-2 mt-1"></BsSun>
-                <span>Day</span>
-              </a>
-            </div>
+            <label
+              htmlFor="default-toggle"
+              onClick={toggleBtn}
+              className="inline-flex relative items-center cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                value=""
+                id="default-toggle"
+                className="sr-only peer"
+              />
+              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <span className="mx-3  text-sm font-medium text-white dark:text-gray-300">
+                {mood ? (
+                  <h1 className="bg-gray-500 rounded p-2">dark</h1>
+                ) : (
+                  <h1 className="bg-white text-black rounded p-2">light</h1>
+                )}
+              </span>
+            </label>
+
             <div>
               {user?.uid ? (
                 <div>
@@ -48,10 +71,9 @@ const Header = () => {
                       src={user?.photoURL}
                       alt="Pic"
                     />
-                    {/* <h3>{user?.name}</h3> */}
                     <button
                       onClick={logOut}
-                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       log out
                     </button>

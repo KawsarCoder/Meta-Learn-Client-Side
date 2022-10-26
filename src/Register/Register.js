@@ -1,11 +1,12 @@
 import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 
 const Register = () => {
   const [error, setError] = useState("");
+
   const { userCreate } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -139,6 +140,27 @@ const Register = () => {
         >
           A profile picture is useful to confirm your are logged into your
           account
+        </div>
+        <div className="flex items-start my-6">
+          <div className="flex items-center h-5">
+            <input
+              id="remember"
+              type="checkbox"
+              value=""
+              className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+              required=" "
+            />
+          </div>
+          <label
+            htmlFor="remember"
+            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Accept{" "}
+            <Link className="text-rose-500" to={"/terms-and-conditions"}>
+              {" "}
+              Terms & condition
+            </Link>
+          </label>
         </div>
         <span className="block mt-2 text-sm text-red-700 rounded-lg dark:bg-red-200 dark:text-red-800">
           {error}
