@@ -26,7 +26,7 @@ export const routes = createBrowserRouter([
       {
         path: "/courses/:id",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/courses/${params.id}`);
+          return fetch(`https://meta-data-rho.vercel.app/courses/${params.id}`);
         },
         element: <CourseDetails></CourseDetails>,
       },
@@ -41,7 +41,7 @@ export const routes = createBrowserRouter([
       {
         path: "/courses/:id/premium",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/courses/${params.id}`);
+          return fetch(`https://meta-data-rho.vercel.app/courses/${params.id}`);
         },
         element: (
           <Private>
