@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <div className="mt-10">
+    <div className="">
       <nav className="bg-indigo-800 lg:py-3 md:pt-3 sm:pt-3 py-10 border-gray-200 px-2 sm:px-4 dark:bg-gray-900">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="/" className="flex items-center">
@@ -46,8 +46,9 @@ const Header = () => {
                     <img
                       className="h-10 rounded-full mx-3"
                       src={user?.photoURL}
-                      alt="Kawsar_Photo"
-                    ></img>
+                      alt="Pic"
+                    />
+                    {/* <h3>{user?.name}</h3> */}
                     <button
                       onClick={logOut}
                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

@@ -3,9 +3,12 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FcPhone } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { userLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const { userLogin, signIn } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -13,63 +16,83 @@ const Login = () => {
     userLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
+
+        navigate("/home");
       })
       .catch((error) => console.error(error));
   };
 
+  const loginFormSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        form.reset();
+        navigate("/");
+      })
+      .catch((e) => console.log(e));
+  };
+
   return (
     <div className="grid grid-cols-12 mt-10">
-      <form className="lg:col-start-4 md:col-start-4 md:col-end-10 sm:col-start-2 sm:col-end-11 col-start-1 col-end-13 rounded-lg bg-slate-100  lg:col-end-10 p-10">
-        <div class="mb-6">
+      <form
+        onSubmit={loginFormSubmit}
+        className="lg:col-start-4 md:col-start-4 md:col-end-10 sm:col-start-2 sm:col-end-11 col-start-1 col-end-13 rounded-lg bg-slate-100  lg:col-end-10 p-10"
+      >
+        <div className="mb-6">
           <label
-            for="email"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            htmlFor="email"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
             Your email
           </label>
           <input
             type="email"
             id="email"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="name@flowbite.com"
             required=" "
           />
         </div>
-        <div class="mb-6">
+        <div className="mb-6">
           <label
-            for="password"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            htmlFor="password"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
             Your password
           </label>
           <input
             type="password"
             id="password"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required=" "
           />
         </div>
-        <div class="flex items-start mb-6">
-          <div class="flex items-center h-5">
+        {/* <div className="flex items-start mb-6">
+          <div className="flex items-center h-5">
             <input
               id="remember"
               type="checkbox"
               value=""
-              class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+              className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
               required=" "
             />
           </div>
           <label
-            for="remember"
-            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            htmlFor="remember"
+            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
             Remember me
           </label>
-        </div>
+        </div> */}
         <button
           type="submit"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Submit
         </button>

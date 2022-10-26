@@ -1,6 +1,12 @@
 import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const { userCreate } = useContext(AuthContext);
+
+  const navigate = useNavigate();
   const userSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -9,18 +15,16 @@ const Register = () => {
     const email = form.email.value;
     const number = form.phone.value;
     const password = form.password.value;
-    console.log(
-      "name",
-      name,
-      "photo",
-      photoURL,
-      "mail",
-      email,
-      "pass",
-      password,
-      "number",
-      number
-    );
+
+    userCreate(email, password, name, photoURL, number)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        form.reset();
+
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div className="grid grid-cols-12">
