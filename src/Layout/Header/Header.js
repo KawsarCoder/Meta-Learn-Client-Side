@@ -17,7 +17,7 @@ const Header = () => {
       setMood(false);
     }
   };
-
+  console.log(user);
   const logOut = () => {
     userLogOut()
       .then(() => {})
@@ -74,7 +74,7 @@ const Header = () => {
                         src={user?.photoURL}
                         alt="Pic"
                       />
-                      <span className="tooltiptext"> {user?.email}</span>
+                      <span className="tooltiptext"> {user?.displayName}</span>
                     </div>
                     <button
                       onClick={logOut}

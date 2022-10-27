@@ -10,14 +10,27 @@ const CourseDetails = () => {
 
   const { name, img, id, description, duration, price } = courseDetails;
   return (
-    <div className="grid grid-cols-12 content-center my-10">
+    <div className="grid grid-cols-12 content-center my-5">
+      <div className="lg:col-start-10 col-start-9">
+        <Pdf targetRef={ref} filename="code-example.pdf">
+          {({ toPdf }) => (
+            <button
+              onClick={toPdf}
+              className="lg:mr-5 bg-blue-700 hover:bg-blue-600 rounded-lg mr-2 font-bold lg:py-4 lg:px-10 px-2 text-white"
+            >
+              Download
+            </button>
+          )}
+        </Pdf>
+      </div>
       <div className="lg:col-start-5 lg:col-end-9 col-start-1 col-end-13">
         <div ref={ref}>
           <div className="grid grid-cols-12 mb-10">
             <h1 className="col-start-4 col-end-10 text-center p-2 mb-5 text-blue-500 font-bold border-b-4 border-b-rose-500 text-2xl">
-              Course Details
+              {name} Details
             </h1>
           </div>
+
           <div className="">
             <img
               className="h-76 w-full rounded-tl-md rounded-tr-md"
@@ -33,21 +46,11 @@ const CourseDetails = () => {
           </div>
         </div>
         <div className="lg:flex md:flex text-center justify-between bg-gray-200 px-10 pb-10 border border-x-gray-300 border-b-gray-300 rounded-bl-md rounded-br-md">
-          <Link to={`/courses/${id}/premium`}>
+          <Link to={`/courses/${id}/check-out`}>
             <button className="lg:mr-5 md:mr-5 sm:mb-5 mb-5 lg:mb-0 md:mb-0 bg-blue-700 hover:bg-blue-600 rounded-lg font-bold py-4 px-10 text-white">
               Get Premium
             </button>
           </Link>
-          <Pdf targetRef={ref} filename="code-example.pdf">
-            {({ toPdf }) => (
-              <button
-                onClick={toPdf}
-                className="mr-5 bg-blue-700 hover:bg-blue-600 rounded-lg font-bold py-4 px-10 text-white"
-              >
-                Download
-              </button>
-            )}
-          </Pdf>
         </div>
       </div>
     </div>

@@ -49,7 +49,7 @@ export const routes = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/courses/:id/premium",
+        path: "/courses/:id/check-out",
         loader: async ({ params }) => {
           return fetch(`https://meta-data-rho.vercel.app/courses/${params.id}`);
         },
