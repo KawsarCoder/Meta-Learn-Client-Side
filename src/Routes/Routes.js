@@ -9,6 +9,7 @@ import Login from "../Login/Login";
 import Premium from "../Premium/Premium";
 import Private from "../Private/Private";
 import Register from "../Register/Register";
+import PhoneLogin from "../Login/PhoneLogin/PhoneLogin";
 
 export const routes = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const routes = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/login/phone",
+        element: <PhoneLogin></PhoneLogin>,
       },
       {
         path: "/register",

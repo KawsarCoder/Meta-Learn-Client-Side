@@ -7,12 +7,16 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext();
 
 const auth = getAuth(app);
+
+auth.languageCode = "it";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
@@ -21,7 +25,11 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
-
+  const setCapcha = (number) => {
+    const recapVerifier = new RecaptchaVerifier("recatcha-container", {}, auth);
+    recapVerifier.render();
+    return signInWithPhoneNumber(auth, number, recapVerifier);
+  };
   const userCreate = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -58,6 +66,7 @@ const AuthProvider = ({ children }) => {
     userCreate,
     signIn,
     updateLoginProfile,
+    setCapcha,
   };
   return (
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>

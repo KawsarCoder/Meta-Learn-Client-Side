@@ -18,7 +18,7 @@ const Login = () => {
     userLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-
+        console.log(user);
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -32,7 +32,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user);
+        console.log(user);
         form.reset();
         setError("");
         navigate(from, { replace: true });
@@ -119,13 +119,15 @@ const Login = () => {
             </svg>
             Sign in with Google
           </button>
-          <button
-            type="button"
-            className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2"
-          >
-            <FcPhone className="mr-2 -ml-1 w-4 h-4" />
-            Sign in with Phone
-          </button>
+          <Link to={"/login/phone"}>
+            <button
+              type="button"
+              className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2"
+            >
+              <FcPhone className="mr-2 -ml-1 w-4 h-4" />
+              Sign in with Phone
+            </button>
+          </Link>
         </div>
       </form>
     </div>

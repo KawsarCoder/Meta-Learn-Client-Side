@@ -16,13 +16,12 @@ const Register = () => {
     const name = form.name.value;
     const photoURL = form.photo.value;
     const email = form.email.value;
-    const number = form.phone.value;
     const password = form.password.value;
 
     userCreate(email, password, name)
       .then((result) => {
         const user = result.user;
-        // console.log(user);
+        console.log(user);
         form.reset();
         updateUserProfile(name, photoURL);
         setError("");
