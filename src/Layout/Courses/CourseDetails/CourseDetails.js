@@ -47,7 +47,7 @@ const CourseDetails = () => {
         </div>
         <div className="lg:flex md:flex text-center justify-between bg-gray-200 px-10 pb-10 border border-x-gray-300 border-b-gray-300 rounded-bl-md rounded-br-md">
           <Link to={`/courses/${id}/check-out`}>
-            <button className="lg:mr-5 md:mr-5 sm:mb-5 mb-5 lg:mb-0 md:mb-0 bg-blue-700 hover:bg-blue-600 rounded-lg font-bold py-4 px-10 text-white">
+            <button className="lg:mr-5 md:mr-5 sm:mb-5 mb-5 lg:mb-0 md:mb-0 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg  dark:shadow-blue-800/80  rounded-lg font-bold py-2 px-5 text-white">
               Get Premium
             </button>
           </Link>

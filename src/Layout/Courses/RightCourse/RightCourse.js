@@ -15,7 +15,7 @@ const RightCourse = ({ category }) => {
       </p>
 
       <Link to={`/courses/${id}`}>
-        <button className="bg-blue-700 hover:bg-blue-500 mt-5 p-3 rounded-lg text-white font-bold">
+        <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg  shadow-blue-500/50 dark:shadow-lg font-bold  px-3 py-2 rounded-md mt-5 dark:shadow-blue-800/80">
           View Details
         </button>
       </Link>

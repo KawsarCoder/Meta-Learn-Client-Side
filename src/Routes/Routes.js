@@ -11,12 +11,17 @@ import Private from "../Private/Private";
 import Register from "../Register/Register";
 import PhoneLogin from "../Login/PhoneLogin/PhoneLogin";
 import Blog from "../Blog/Blog";
+import Faq from "../Faq/Faq";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
       {
         path: "/home",
         element: <Home></Home>,
@@ -28,6 +33,10 @@ export const routes = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
       },
       {
         path: "/courses/:id",

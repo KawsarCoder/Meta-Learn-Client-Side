@@ -6,7 +6,7 @@ const Premium = () => {
   const { name, price } = courseDetails;
   return (
     <div className="grid grid-cols-12">
-      <div className="border-blue-500 lg:col-start-5 lg:col-end-9 mt-10  bg-gray-200 border-4 rounded-lg  p-5">
+      <div className="border-blue-500 lg:col-start-5 lg:col-end-9 col-start-2 col-end-12 mt-10  bg-gray-200 border-4 rounded-lg  p-5">
         <h3 className="font-bold text-xl mb-3">{name} course</h3>
         <h3 className="font-bold text-rose-500 mb-3">Price: {price}</h3>
 
