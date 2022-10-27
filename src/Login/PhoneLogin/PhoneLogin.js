@@ -56,7 +56,7 @@ const PhoneLogin = () => {
         onSubmit={getOtp}
         style={{ display: !flag ? "blog" : "none" }}
       >
-        <div className=" col-start-4 col-end-9">
+        <div className=" lg:col-start-4 lg:col-end-9 col-start-1 col-end-13">
           <PhoneInput
             defaultCountry="BD"
             value={number}
@@ -83,7 +83,7 @@ const PhoneLogin = () => {
         </div>
       </Form>
       <Form className="grid grid-cols-12" onSubmit={verifyOtp}>
-        <div className=" col-start-4 col-end-9">
+        <div className=" lg:col-start-4 lg:col-end-9 col-start-1 col-end-13">
           <div className="m-3">
             <input
               type="text"

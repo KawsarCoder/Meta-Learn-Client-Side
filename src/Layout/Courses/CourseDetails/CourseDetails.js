@@ -8,10 +8,10 @@ const ref = React.createRef();
 const CourseDetails = () => {
   const courseDetails = useLoaderData();
 
-  const { name, img,id, description, duration, price } = courseDetails;
+  const { name, img, id, description, duration, price } = courseDetails;
   return (
     <div className="grid grid-cols-12 content-center my-10">
-      <div className="lg:col-start-5 lg:col-end-9">
+      <div className="lg:col-start-5 lg:col-end-9 col-start-1 col-end-13">
         <div ref={ref}>
           <div className="grid grid-cols-12 mb-10">
             <h1 className="col-start-4 col-end-10 text-center p-2 mb-5 text-blue-500 font-bold border-b-4 border-b-rose-500 text-2xl">

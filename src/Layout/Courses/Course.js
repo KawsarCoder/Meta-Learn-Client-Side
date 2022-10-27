@@ -27,7 +27,7 @@ const Course = () => {
             ))}
           </div>
         </div>
-        <div className="m-12 lg:col-span-10 md:col-span-9">
+        <div className="my-12 lg:mx-10 lg:col-span-10 md:col-span-9">
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-5">
             {categories.map((category) => (
               <RightCourse key={category.id} category={category}></RightCourse>

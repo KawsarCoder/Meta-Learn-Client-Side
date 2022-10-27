@@ -11,7 +11,6 @@ const Header = () => {
 
   const toggleBtn = (event) => {
     const toggle = event.target.checked;
-    const setTheme = document.getElementsByClassName("Theme");
     if (toggle === true) {
       setMood(true);
     } else {
@@ -28,20 +27,22 @@ const Header = () => {
   return (
     <div className="">
       <nav className="bg-indigo-800 lg:py-3 md:pt-3 sm:pt-3 py-10 border-gray-200 px-2 sm:px-4 dark:bg-gray-900">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="/" className="flex items-center">
-            <img
-              src="https://1000logos.net/wp-content/uploads/2021/10/logo-Meta.png"
-              className="mr-3 h-6 sm:h-9 w-12"
-              alt="Flowbite Logo"
-            />
-            <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
-              <span className="bg-rose-500 text-white rounded p-3">
-                Meta Learn
+        <div className="container text-center justify-items-center grid lg:grid-cols-3  mx-auto">
+          <div>
+            <a href="/" className="flex items-center md:my-5">
+              <img
+                src="https://1000logos.net/wp-content/uploads/2021/10/logo-Meta.png"
+                className="mr-3 h-6 sm:h-9 w-12"
+                alt="Flowbite Logo"
+              />
+              <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
+                <span className="bg-rose-500 text-white rounded p-3">
+                  Meta Learn
+                </span>
               </span>
-            </span>
-          </a>
-          <div className="lg:flex md:flex sm:flex block md:order-2">
+            </a>
+          </div>
+          <div className="lg:flex md:flex sm:flex block md:order-2 mt-5">
             <label
               htmlFor="default-toggle"
               onClick={toggleBtn}
@@ -53,8 +54,8 @@ const Header = () => {
                 id="default-toggle"
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-              <span className="mx-3  text-sm font-medium text-white dark:text-gray-300">
+              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 mb-5 after:mt-1.5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <span className="mx-3 mb-4  text-sm font-medium text-white dark:text-gray-300">
                 {mood ? (
                   <h1 className="bg-gray-500 rounded p-2">dark</h1>
                 ) : (
@@ -63,7 +64,7 @@ const Header = () => {
               </span>
             </label>
 
-            <div>
+            <div className="lg:mt-0 mt-5 ">
               {user?.uid ? (
                 <div>
                   <div className="flex">
