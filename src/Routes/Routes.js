@@ -10,6 +10,7 @@ import Premium from "../Premium/Premium";
 import Private from "../Private/Private";
 import Register from "../Register/Register";
 import PhoneLogin from "../Login/PhoneLogin/PhoneLogin";
+import Blog from "../Blog/Blog";
 
 export const routes = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const routes = createBrowserRouter([
       {
         path: "/courses",
         element: <Course></Course>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/courses/:id",
