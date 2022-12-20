@@ -26,14 +26,14 @@ const Header = () => {
 
   return (
     <div className="">
-      <nav className="bg-indigo-800 lg:py-3 md:pt-3 sm:pt-3 py-10 border-gray-200 px-2 sm:px-4 dark:bg-gray-900">
+      <nav className="bg-indigo-800 lg:py-0 md:pt-3 sm:pt-3 py-10 border-gray-200 px-2 sm:px-4 dark:bg-gray-900">
         <div className="container text-center justify-items-center grid lg:grid-cols-3  mx-auto">
           <div>
             <a href="/" className="flex items-center md:my-5">
               <img
                 src="https://1000logos.net/wp-content/uploads/2021/10/logo-Meta.png"
                 className="mr-3 h-6 sm:h-9 w-12"
-                alt="Flowbite Logo"
+                alt="Meta Logo"
               />
               <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
                 <span className="bg-rose-500 text-white rounded p-3">
@@ -89,7 +89,7 @@ const Header = () => {
                   <Link to={"/login"}>
                     <button
                       type="button"
-                      className="text-white bg-blue-600 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="text-blue bg-blue-600 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       Log In
                     </button>

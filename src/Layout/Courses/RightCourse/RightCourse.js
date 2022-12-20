@@ -6,7 +6,9 @@ const RightCourse = ({ category }) => {
 
   return (
     <div className="border-blue-500 bg-gray-200 border-4 rounded-lg  p-5">
-      <img className="h-3/6 mb-3" src={img} alt="" />
+      <div>
+        <img className="h-3/6 mb-3" src={img} alt="" />
+      </div>
       <h3 className="font-bold text-xl mb-3">{name}</h3>
       <p className="text-gray-500">
         {description.length < 50

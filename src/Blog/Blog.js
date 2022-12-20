@@ -6,12 +6,12 @@ const Blog = () => {
       <div className="m-10">
         <a
           href="/blog"
-          class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Question-01: What is CORS?
           </h5>
-          <p class="font-normal text-gray-700 dark:text-gray-400">
+          <p className="font-normal text-gray-700 dark:text-gray-400">
             Cross-origin resource sharing (CORS) is a browser mechanism which
             enables controlled access to resources located outside of a given
             domain.It is an HTTP-header based mechanism that allows a server to
@@ -23,13 +23,13 @@ const Blog = () => {
       <div className="m-10">
         <a
           href="/blog"
-          class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Question-02 why are you using firebase? what other option do you
             have to implement authentication without firebase?
           </h5>
-          <p class="font-normal text-gray-700 dark:text-gray-400">
+          <p className="font-normal text-gray-700 dark:text-gray-400">
             The Firebase Realtime Database lets you build rich, collaborative
             applications by allowing secure access to the database directly from
             client-side code. Auth0, MongoDB, Passport, Okta, and Firebase are
@@ -41,12 +41,12 @@ const Blog = () => {
       <div className="m-10">
         <a
           href="/blog"
-          class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Question-03: How does the private route work?
           </h5>
-          <p class="font-normal text-gray-700 dark:text-gray-400">
+          <p className="font-normal text-gray-700 dark:text-gray-400">
             The private route component is similar to the public route, the only
             change is that redirect URL and authenticate condition. If the user
             is not authenticated he will be redirected to the login page and the
@@ -58,12 +58,12 @@ const Blog = () => {
       <div className="m-10">
         <a
           href="/blog"
-          class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Question-04: What is node? How does node work?
           </h5>
-          <p class="font-normal text-gray-700 dark:text-gray-400">
+          <p className="font-normal text-gray-700 dark:text-gray-400">
             Node allows developers to write JavaScript code that runs directly
             in a computer process itself instead of in a browser. Node. js runs
             on chrome v8 engine which converts javascript code into machine

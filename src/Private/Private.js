@@ -9,10 +9,10 @@ const Private = ({ children }) => {
 
   if (loading) {
     return (
-      <div class="text-center mt-10">
+      <div className="text-center mt-10">
         <div role="status">
           <svg
-            class="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+            className="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@ const Private = ({ children }) => {
               fill="currentFill"
             />
           </svg>
-          <span class="sr-only">Loading...</span>
+          <span className="sr-only">Loading...</span>
         </div>
       </div>
     );
